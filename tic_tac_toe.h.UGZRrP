@@ -1,0 +1,49 @@
+#ifndef TIC_TAC_TOE_H
+#define TIC_TAC_TOE_H
+
+#include<QPushButton>
+#include<QRadioButton>
+#include <QMainWindow>
+#include<QVector>
+#include<QDebug>
+#include<ctime>
+
+namespace Ui {
+class Tic_tac_toe;
+}
+
+class Tic_tac_toe : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit Tic_tac_toe(QWidget *parent = nullptr);
+    ~Tic_tac_toe();
+
+private:
+    Ui::Tic_tac_toe *ui;
+
+    QVector<QPushButton *> field;
+    char CompSymbol;
+    char PeopleSymbol;
+    static const int SIZE = 9;
+    int PlaysFirst;
+    int play;
+    int coord;
+
+public:
+    bool IsEmpty(int index);
+    bool Vin(QString symbol);
+    bool Full();
+
+private slots:
+    void PeopleMove();
+    void CompMove();
+    void Move();
+    void on_btnStart_clicked();
+   // void on_cbX_stateChanged(int arg1);
+   // void on_cbO_stateChanged(int arg1);
+    void State();
+};
+
+#endif // TIC_TAC_TOE_H

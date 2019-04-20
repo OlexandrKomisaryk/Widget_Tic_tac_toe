@@ -1,0 +1,51 @@
+#include "tic_tac_toe.h"
+#include "ui_tic_tac_toe.h"
+
+Tic_tac_toe::Tic_tac_toe(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Tic_tac_toe)
+{
+    ui->setupUi(this);
+
+    connect(ui->btnX, SIGNAL(clicked()), this, SLOT( SetPlaysFirst()));
+    connect(ui->btnO, SIGNAL(clicked()), this, SLOT( SetPlaysFirst()));
+}
+
+Tic_tac_toe::~Tic_tac_toe()
+{
+    delete ui;
+}
+
+
+void Tic_tac_toe::Clear()
+{
+    foreach (QPushButton *btn, field)
+    {
+        btn->setText(" ");
+    }
+}
+
+void Tic_tac_toe::SetPlaysFirst()
+{
+   QPushButton *btn = qobject_cast<QPushButton *>(sender());
+   ui->btnX->setEnabled(false);//////copy in Start btn
+   ui->btnO->setEnabled(false);//////
+
+   if(btn->text() == "X")
+   {
+       play = 0;
+       PlaysFirst = 0;
+       CompSymbol = 'O';
+       PeopleSymbol = 'X';
+   }
+   else
+   {
+       play = 1;
+       PlaysFirst = 1;
+       CompSymbol = 'X';
+       PeopleSymbol = 'O';
+   }
+   qDebug()<<play;////////
+   qDebug()<<CompSymbol;////////
+   qDebug()<<PeopleSymbol;////////
+}

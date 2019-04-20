@@ -1,0 +1,155 @@
+#include "tic_tac_toe.h"
+#include "ui_tic_tac_toe.h"
+
+Tic_tac_toe::Tic_tac_toe(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Tic_tac_toe)
+{
+    ui->setupUi(this);
+    field.push_back(ui->btn1);
+    field.push_back(ui->btn2);
+    field.push_back(ui->btn3);
+    field.push_back(ui->btn4);
+    field.push_back(ui->btn5);
+    field.push_back(ui->btn6);
+    field.push_back(ui->btn7);
+    field.push_back(ui->btn8);
+    field.push_back(ui->btn9);
+
+    QPushButton *btn;
+    foreach (btn, field)
+    {
+        btn->setText("");
+        btn->setEnabled(false);
+    }
+    connect(ui->cbO, SIGNAL(stateChanged(2)), SLOT(SetPlaysFirst()));
+    connect(ui->cbX, SIGNAL(stateChanged(2)), SLOT(SetPlaysFirst()));
+
+    connect(ui->btnStart, SIGNAL(clicked()), this, SLOT(on_btnStart_clicked()));
+
+    foreach (btn, field)
+    {
+        connect(btn, SIGNAL(clicked()), this, SLOT(Move()));
+    }
+
+}
+
+Tic_tac_toe::~Tic_tac_toe()
+{
+    delete ui;
+}
+
+void Tic_tac_toe::SetPlaysFirst()
+{
+   if(ui->cbO->isChecked())
+   {
+       play = 0;
+       PlaysFirst = 0;
+       CompSymbol = 'O';
+       PeopleSymbol = 'X';
+   }
+   else if(ui->cbX->isChecked())
+   {
+       play = 1;
+       PlaysFirst = 1;
+       CompSymbol = 'X';
+       PeopleSymbol = 'O';
+   }
+   qDebug()<<play;////////
+   qDebug()<<CompSymbol;////////
+   qDebug()<<PeopleSymbol;////////
+}
+
+ bool Tic_tac_toe::IsEmpty(int index)
+ {
+    return field[index]->text() == "";
+ }
+
+
+ bool Tic_tac_toe::Full()
+ {
+     int temp = 0;
+     for (int i = 0; i < SIZE; i++)
+     {
+         if (field[i]->text() != "")
+             temp++;
+         else
+             break;
+     }
+     return (temp == 9) ? true : false;
+ }
+
+ void Tic_tac_toe::CompMove()
+ {
+     srand(time(NULL));
+     int temp = 0;
+     while (temp == 0)
+     {
+        coord = rand() % SIZE;
+        if (IsEmpty(coord))
+         {
+            field[coord]->setText(QString(CompSymbol));
+            field[coord]->setEnabled(false);
+            temp = 1;
+          }
+     }
+ }
+
+ void Tic_tac_toe::PeopleMove()
+ {
+     QPushButton *btn = qobject_cast<QPushButton *>(sender());
+     btn->setText(QString(PeopleSymbol));
+     btn->setEnabled(false);
+ }
+
+ void Tic_tac_toe::Move()
+ {
+     PeopleMove();
+     if(!Full())
+     CompMove();
+ }
+
+void Tic_tac_toe::on_btnStart_clicked()
+{
+    //ui->btnX->setEnabled(false);
+    //ui->btnO->setEnabled(false);
+
+     QPushButton *btn;
+     foreach (btn, field)
+     {
+         btn->setText("");
+         btn->setEnabled(true);
+     }
+     if(play == 1)
+     {
+         CompMove();
+     }
+}
+
+bool Tic_tac_toe::Vin(QString symbol)
+{
+    int temp = 0;
+    for (int i = 0; i < SIZE; i += 3)
+    {
+        if (field[i]->text() == symbol && field[i + 1]->text() == symbol &&  field[i + 2]->text() == symbol)
+        {
+            temp++;
+        }
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        if (field[i]->text() == symbol && field[i + 3]->text() == symbol && field[i + 6]->text() == symbol)
+        {
+            temp++;
+        }
+    }
+    if (field[0]->text() == symbol && field[4]->text() == symbol && field[8]->text() == symbol)
+    {
+        temp++;
+    }
+    if (field[2]->text() == symbol && field[4]->text() == symbol && field[6]->text() == symbol)
+    {
+        temp++;
+    }
+        return temp <= 0 ? false : true;
+}

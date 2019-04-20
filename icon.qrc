@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/tic-tac-toe_icon.png</file>
+        <file>main.cpp</file>
+        <file>tic_tac_toe.cpp</file>
+        <file>tic_tac_toe.h</file>
+    </qresource>
+</RCC>
