@@ -29,9 +29,9 @@ private:
     static const int SIZE = 9;
     int coord;
 
-public:
+private:
     bool IsLegal(int index);
-    bool Win(QString symbol);
+    bool Win(char symbol);
     bool Full();
     bool Empty();
     void ShowWin();

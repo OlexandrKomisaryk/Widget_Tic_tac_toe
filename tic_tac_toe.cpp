@@ -109,11 +109,12 @@ void Tic_tac_toe::State()
          if (IsLegal(i))
          {
              field[i]->setText(QString (checked_char));
-             if (Win( QString(checked_char)))
+             if (Win(checked_char))
              {
                  if (checked_char == PeopleSymbol)
                  {
                       field[i]->setText(QString (CompSymbol));
+                      field[i]->setEnabled(false);
                  }
                  break;
              }
@@ -128,12 +129,11 @@ void Tic_tac_toe::State()
  }
 
 
-
  void Tic_tac_toe::CompMove()
  {
      if (!NextMoveWin(CompSymbol) && (!NextMoveWin(PeopleSymbol)))
      {
-         QString level = ui->levelBox->currentText();
+        QString level = ui->levelBox->currentText();
         if(level == "Easy")
         {
              srand(time(NULL));
@@ -152,20 +152,19 @@ void Tic_tac_toe::State()
         if(level == "Hard")
         {
            QVector<int>ArrayPosition = { 4, 0, 2, 6, 8, 1, 3, 5, 7 }; //the priorities of the cells on the field
-           std::random_shuffle(ArrayPosition.begin()+1, ArrayPosition.begin()+4);   //randomly mixes cells
-           std::random_shuffle(ArrayPosition.begin()+5, ArrayPosition.begin()+8); //with the same priority
-
-           if(Empty())
-           std::random_shuffle(ArrayPosition.begin(), ArrayPosition.begin()+4);
+           std::random_shuffle(ArrayPosition.begin(), ArrayPosition.begin()+5);   //randomly mixes cells
+           std::random_shuffle(ArrayPosition.begin()+6, ArrayPosition.end()); //with the same priority
 
            for (int i = 0; i < SIZE; i++)
            {
                 if (IsLegal(ArrayPosition[i]))
                 {
+                    field[ArrayPosition[i]]->setEnabled(false);
                     field[ArrayPosition[i]]->setText(QString(CompSymbol));
                     break;
                  }
            }
+
         }
      }
  }
@@ -179,25 +178,26 @@ void Tic_tac_toe::State()
 
  void Tic_tac_toe::ShowWin()
  {
-     if(Win(QString (CompSymbol)))
+     if(Win(CompSymbol))
          ui->ShowResult->setText("Computer win");
-     if(Win(QString (PeopleSymbol)))
+     if(Win(PeopleSymbol))
          ui->ShowResult->setText("You win");
-     if((!Win(QString (PeopleSymbol))) && (!Win(QString (CompSymbol))) && Full())
+     if((!Win(PeopleSymbol)) && (!Win(CompSymbol)) && Full())
          ui->ShowResult->setText("Game over draw");
  }
 
  void Tic_tac_toe::Move()
  {
      PeopleMove();
-     if((!Full()) && (!Win("X")) && (!Win("O")))
+     if((!Full()) && (!Win(CompSymbol)) && (!Win(PeopleSymbol)))
      {
          CompMove();
      }
-     if(Full() || Win("X") || Win("O"))
+     if(Full() || Win(CompSymbol) || Win(PeopleSymbol))
      {
          ui->rbO->setEnabled(true);
          ui->rbX->setEnabled(true);
+         ui->levelBox->setEnabled(true);
          foreach (QPushButton *btn, field)
          {
              btn->setEnabled(false);
@@ -218,31 +218,33 @@ void Tic_tac_toe::on_btnStart_clicked()
      }
      ui->rbO->setEnabled(false);
      ui->rbX->setEnabled(false);
+     ui->levelBox->setEnabled(false);
 }
 
 
-bool Tic_tac_toe::Win(QString symbol)
+bool Tic_tac_toe::Win(char symbol)
 {
+    QString target = QString (symbol);
     int temp = 0;
     for (int i = 0; i < SIZE; i += 3)
     {
-        if (field[i]->text() == symbol && field[i + 1]->text() == symbol &&  field[i + 2]->text() == symbol)
+        if (field[i]->text() == target && field[i + 1]->text() == target &&  field[i + 2]->text() == target)
         {
             temp++;
         }
     }
     for (int i = 0; i < 3; i++)
     {
-        if (field[i]->text() == symbol && field[i + 3]->text() == symbol && field[i + 6]->text() == symbol)
+        if (field[i]->text() == target && field[i + 3]->text() == target && field[i + 6]->text() == target)
         {
             temp++;
         }
     }
-    if (field[0]->text() == symbol && field[4]->text() == symbol && field[8]->text() == symbol)
+    if (field[0]->text() == target && field[4]->text() == target && field[8]->text() == target)
     {
         temp++;
     }
-    if (field[2]->text() == symbol && field[4]->text() == symbol && field[6]->text() == symbol)
+    if (field[2]->text() == target && field[4]->text() == target && field[6]->text() == target)
     {
         temp++;
     }
