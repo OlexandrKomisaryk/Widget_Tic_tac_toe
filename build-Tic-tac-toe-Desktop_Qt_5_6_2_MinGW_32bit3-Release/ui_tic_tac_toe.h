@@ -35,6 +35,7 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QComboBox *levelBox;
+    QSpacerItem *horizontalSpacer_2;
     QLabel *label;
     QVBoxLayout *verticalLayout_2;
     QRadioButton *rbX;
@@ -99,6 +100,10 @@ public:
 
         horizontalLayout_2->addWidget(levelBox);
 
+        horizontalSpacer_2 = new QSpacerItem(9, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
         label = new QLabel(widget);
         label->setObjectName(QStringLiteral("label"));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -106,7 +111,9 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
         label->setSizePolicy(sizePolicy2);
-        label->setFont(font);
+        QFont font1;
+        font1.setPointSize(12);
+        label->setFont(font1);
 
         horizontalLayout_2->addWidget(label);
 
@@ -120,16 +127,16 @@ public:
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(rbX->sizePolicy().hasHeightForWidth());
         rbX->setSizePolicy(sizePolicy3);
-        QFont font1;
-        font1.setPointSize(14);
-        rbX->setFont(font1);
+        QFont font2;
+        font2.setPointSize(14);
+        rbX->setFont(font2);
         rbX->setStyleSheet(QStringLiteral("color: rgb(0, 170, 0);"));
 
         verticalLayout_2->addWidget(rbX);
 
         rbO = new QRadioButton(widget);
         rbO->setObjectName(QStringLiteral("rbO"));
-        rbO->setFont(font1);
+        rbO->setFont(font2);
         rbO->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
 
         verticalLayout_2->addWidget(rbO);
@@ -156,11 +163,11 @@ public:
         btn9->setMaximumSize(QSize(70, 70));
         btn9->setSizeIncrement(QSize(70, 70));
         btn9->setBaseSize(QSize(70, 70));
-        QFont font2;
-        font2.setPointSize(22);
-        font2.setBold(true);
-        font2.setWeight(75);
-        btn9->setFont(font2);
+        QFont font3;
+        font3.setPointSize(22);
+        font3.setBold(true);
+        font3.setWeight(75);
+        btn9->setFont(font3);
         btn9->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -175,7 +182,7 @@ public:
         btn3->setMaximumSize(QSize(70, 70));
         btn3->setSizeIncrement(QSize(70, 70));
         btn3->setBaseSize(QSize(70, 70));
-        btn3->setFont(font2);
+        btn3->setFont(font3);
         btn3->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -190,7 +197,7 @@ public:
         btn8->setMaximumSize(QSize(70, 70));
         btn8->setSizeIncrement(QSize(70, 70));
         btn8->setBaseSize(QSize(70, 70));
-        btn8->setFont(font2);
+        btn8->setFont(font3);
         btn8->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -205,7 +212,7 @@ public:
         btn4->setMaximumSize(QSize(70, 70));
         btn4->setSizeIncrement(QSize(70, 70));
         btn4->setBaseSize(QSize(70, 70));
-        btn4->setFont(font2);
+        btn4->setFont(font3);
         btn4->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -220,7 +227,7 @@ public:
         btn1->setMaximumSize(QSize(70, 70));
         btn1->setSizeIncrement(QSize(70, 70));
         btn1->setBaseSize(QSize(70, 70));
-        btn1->setFont(font2);
+        btn1->setFont(font3);
         btn1->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -235,7 +242,7 @@ public:
         btn6->setMaximumSize(QSize(70, 70));
         btn6->setSizeIncrement(QSize(70, 70));
         btn6->setBaseSize(QSize(70, 70));
-        btn6->setFont(font2);
+        btn6->setFont(font3);
         btn6->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -250,7 +257,7 @@ public:
         btn7->setMaximumSize(QSize(70, 70));
         btn7->setSizeIncrement(QSize(70, 70));
         btn7->setBaseSize(QSize(70, 70));
-        btn7->setFont(font2);
+        btn7->setFont(font3);
         btn7->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -265,7 +272,7 @@ public:
         btn5->setMaximumSize(QSize(70, 70));
         btn5->setSizeIncrement(QSize(70, 70));
         btn5->setBaseSize(QSize(70, 70));
-        btn5->setFont(font2);
+        btn5->setFont(font3);
         btn5->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -280,7 +287,7 @@ public:
         btn2->setMaximumSize(QSize(70, 70));
         btn2->setSizeIncrement(QSize(70, 70));
         btn2->setBaseSize(QSize(70, 70));
-        btn2->setFont(font2);
+        btn2->setFont(font3);
         btn2->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
@@ -292,7 +299,7 @@ public:
 
         ShowResult = new QLabel(widget);
         ShowResult->setObjectName(QStringLiteral("ShowResult"));
-        ShowResult->setFont(font1);
+        ShowResult->setFont(font2);
         ShowResult->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
         ShowResult->setAlignment(Qt::AlignCenter);
 
@@ -307,9 +314,7 @@ public:
         btnStart->setSizePolicy(sizePolicy);
         btnStart->setMinimumSize(QSize(100, 40));
         btnStart->setMaximumSize(QSize(100, 40));
-        QFont font3;
-        font3.setPointSize(12);
-        btnStart->setFont(font3);
+        btnStart->setFont(font1);
         btnStart->setStyleSheet(QStringLiteral("background-color: rgb(60, 255, 57);"));
 
         horizontalLayout->addWidget(btnStart);
@@ -324,7 +329,7 @@ public:
         btnClose->setSizePolicy(sizePolicy);
         btnClose->setMinimumSize(QSize(100, 40));
         btnClose->setMaximumSize(QSize(100, 40));
-        btnClose->setFont(font3);
+        btnClose->setFont(font1);
         btnClose->setStyleSheet(QStringLiteral("background-color: rgb(255, 16, 28);"));
 
         horizontalLayout->addWidget(btnClose);
@@ -347,9 +352,11 @@ public:
         levelBox->insertItems(0, QStringList()
          << QApplication::translate("Tic_tac_toe", "Easy", 0)
          << QApplication::translate("Tic_tac_toe", "Hard", 0)
+         << QApplication::translate("Tic_tac_toe", "Impossible", 0)
         );
         levelBox->setCurrentText(QApplication::translate("Tic_tac_toe", "Easy", 0));
-        label->setText(QApplication::translate("Tic_tac_toe", "Select a character", 0));
+        label->setText(QApplication::translate("Tic_tac_toe", "Select a\n"
+"character", 0));
         rbX->setText(QApplication::translate("Tic_tac_toe", "X", 0));
         rbO->setText(QApplication::translate("Tic_tac_toe", "O", 0));
         btn9->setText(QString());

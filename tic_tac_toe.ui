@@ -83,7 +83,25 @@
            <string>Hard</string>
           </property>
          </item>
+         <item>
+          <property name="text">
+           <string>Impossible</string>
+          </property>
+         </item>
         </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>9</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <widget class="QLabel" name="label">
@@ -95,11 +113,12 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>11</pointsize>
+           <pointsize>12</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Select a character</string>
+          <string>Select a
+character</string>
          </property>
         </widget>
        </item>

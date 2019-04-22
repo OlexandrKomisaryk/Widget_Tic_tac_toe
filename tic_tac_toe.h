@@ -28,6 +28,7 @@ private:
     char PeopleSymbol = 'X';
     static const int SIZE = 9;
     int coord;
+    int move_counter;
 
 private:
     bool IsLegal(int index);
@@ -36,11 +37,15 @@ private:
     bool Empty();
     void ShowWin();
     void Clear();
-    bool NextMoveWin(char checked_char);
-
-private slots:
     void PeopleMove();
     void CompMove();
+    bool NextMoveWin(char checked_char);
+    void EasyLevel();
+    void HardLevel();
+    void ImpossibleLevel();
+
+
+private slots:
     void Move();
     void on_btnStart_clicked();
     void State();
