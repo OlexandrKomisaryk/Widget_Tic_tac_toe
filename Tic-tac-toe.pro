@@ -47,5 +47,5 @@ RESOURCES += \
     image.qrc
 
 DISTFILES += \
-    image/tic-tac-toe_icon.png \
+    image/icon_tic-tac-ton.png \
     image/tic-tac-toe_icon.png

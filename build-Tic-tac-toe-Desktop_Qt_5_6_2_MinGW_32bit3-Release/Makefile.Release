@@ -51,7 +51,7 @@ OBJECTS       = release/main.o \
 		release/qrc_image.o \
 		release/moc_tic_tac_toe.o
 
-DIST          = image/tic-tac-toe_icon.png \
+DIST          = image/icon_tic-tac-ton.png \
 		image/tic-tac-toe_icon.png ..\Tic-tac-toe\tic_tac_toe.h ..\Tic-tac-toe\main.cpp \
 		..\Tic-tac-toe\tic_tac_toe.cpp
 QMAKE_TARGET  = Tic-tac-toe
@@ -96,7 +96,8 @@ compiler_rcc_make_all: release/qrc_image.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_image.cpp
 release/qrc_image.cpp: ../Tic-tac-toe/image.qrc \
-		../Tic-tac-toe/image/tic-tac-toe_icon.png
+		../Tic-tac-toe/image/icon_tic-tac-toe.png \
+		../Tic-tac-toe/image/pictogram_tic-tac-toe.ico
 	E:\Program\Qt\5.6\mingw49_32\bin\rcc.exe -name image ..\Tic-tac-toe\image.qrc -o release\qrc_image.cpp
 
 compiler_moc_header_make_all: release/moc_tic_tac_toe.cpp
@@ -519,6 +520,7 @@ release/tic_tac_toe.o: ../Tic-tac-toe/tic_tac_toe.cpp ../Tic-tac-toe/tic_tac_toe
 		../../../Program/Qt/5.6/mingw49_32/include/QtCore/qitemselectionmodel.h \
 		../../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QLabel \
 		../../../Program/Qt/5.6/mingw49_32/include/QtWidgets/qlabel.h \
+		../../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QSpacerItem \
 		../../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
 		../../../Program/Qt/5.6/mingw49_32/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tic_tac_toe.o ..\Tic-tac-toe\tic_tac_toe.cpp

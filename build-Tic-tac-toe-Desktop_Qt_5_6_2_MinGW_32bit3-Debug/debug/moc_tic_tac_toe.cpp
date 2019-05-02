@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Tic_tac_toe_t {
-    QByteArrayData data[7];
-    char stringdata0[64];
+    QByteArrayData data[5];
+    char stringdata0[44];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,16 +30,14 @@ struct qt_meta_stringdata_Tic_tac_toe_t {
 static const qt_meta_stringdata_Tic_tac_toe_t qt_meta_stringdata_Tic_tac_toe = {
     {
 QT_MOC_LITERAL(0, 0, 11), // "Tic_tac_toe"
-QT_MOC_LITERAL(1, 12, 10), // "PeopleMove"
-QT_MOC_LITERAL(2, 23, 0), // ""
-QT_MOC_LITERAL(3, 24, 8), // "CompMove"
-QT_MOC_LITERAL(4, 33, 4), // "Move"
-QT_MOC_LITERAL(5, 38, 19), // "on_btnStart_clicked"
-QT_MOC_LITERAL(6, 58, 5) // "State"
+QT_MOC_LITERAL(1, 12, 4), // "Move"
+QT_MOC_LITERAL(2, 17, 0), // ""
+QT_MOC_LITERAL(3, 18, 19), // "on_btnStart_clicked"
+QT_MOC_LITERAL(4, 38, 5) // "State"
 
     },
-    "Tic_tac_toe\0PeopleMove\0\0CompMove\0Move\0"
-    "on_btnStart_clicked\0State"
+    "Tic_tac_toe\0Move\0\0on_btnStart_clicked\0"
+    "State"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +47,7 @@ static const uint qt_meta_data_Tic_tac_toe[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,15 +55,11 @@ static const uint qt_meta_data_Tic_tac_toe[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   39,    2, 0x08 /* Private */,
-       3,    0,   40,    2, 0x08 /* Private */,
-       4,    0,   41,    2, 0x08 /* Private */,
-       5,    0,   42,    2, 0x08 /* Private */,
-       6,    0,   43,    2, 0x08 /* Private */,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    0,   30,    2, 0x08 /* Private */,
+       4,    0,   31,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -79,11 +73,9 @@ void Tic_tac_toe::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Tic_tac_toe *_t = static_cast<Tic_tac_toe *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->PeopleMove(); break;
-        case 1: _t->CompMove(); break;
-        case 2: _t->Move(); break;
-        case 3: _t->on_btnStart_clicked(); break;
-        case 4: _t->State(); break;
+        case 0: _t->Move(); break;
+        case 1: _t->on_btnStart_clicked(); break;
+        case 2: _t->State(); break;
         default: ;
         }
     }
@@ -115,13 +107,13 @@ int Tic_tac_toe::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 3;
     }
     return _id;
 }

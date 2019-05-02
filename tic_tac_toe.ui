@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>275</width>
+    <width>285</width>
     <height>400</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>275</width>
+    <width>285</width>
     <height>400</height>
    </size>
   </property>
@@ -33,24 +33,33 @@
   </property>
   <property name="windowIcon">
    <iconset resource="image.qrc">
-    <normaloff>:/icon/image/tic-tac-toe_icon.png</normaloff>:/icon/image/tic-tac-toe_icon.png</iconset>
+    <normaloff>:/icon/image/icon_tic-tac-toe.png</normaloff>:/icon/image/icon_tic-tac-toe.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>234</width>
-      <height>377</height>
+      <x>23</x>
+      <y>12</y>
+      <width>240</width>
+      <height>379</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>3</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QComboBox" name="levelBox">
          <property name="sizePolicy">
@@ -59,16 +68,28 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>11</pointsize>
           </font>
          </property>
+         <property name="toolTipDuration">
+          <number>0</number>
+         </property>
          <property name="editable">
           <bool>false</bool>
-         </property>
-         <property name="currentText">
-          <string>Easy</string>
          </property>
          <property name="minimumContentsLength">
           <number>2</number>
@@ -80,12 +101,12 @@
          </item>
          <item>
           <property name="text">
-           <string>Hard</string>
+           <string>Normal</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>Impossible</string>
+           <string>Hard</string>
           </property>
          </item>
         </widget>
@@ -97,7 +118,7 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>9</width>
+           <width>14</width>
            <height>20</height>
           </size>
          </property>
@@ -123,6 +144,19 @@ character</string>
         </widget>
        </item>
        <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>3</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QRadioButton" name="rbX">
@@ -138,7 +172,7 @@ character</string>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">color: rgb(0, 170, 0);</string>
+            <string notr="true">color: rgb(0, 100, 0);</string>
            </property>
            <property name="text">
             <string>X</string>
@@ -161,6 +195,19 @@ character</string>
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>13</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </item>
@@ -215,10 +262,13 @@ character</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
@@ -264,23 +314,27 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
 border-color: rgb(21, 21, 21);
-color: rgb(170, 0, 0);</string>
+color: rgb(170, 0, 0);
+</string>
          </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QPushButton" name="btn8">
+       <item row="2" column="0">
+        <widget class="QPushButton" name="btn1">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -313,10 +367,13 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
@@ -362,108 +419,13 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(89, 153, 255);
-border-color: rgb(21, 21, 21);
-color: rgb(170, 0, 0);</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QPushButton" name="btn1">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>22</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(89, 153, 255);
-border-color: rgb(21, 21, 21);
-color: rgb(170, 0, 0);</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QPushButton" name="btn6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="sizeIncrement">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="baseSize">
-          <size>
-           <width>70</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>22</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
@@ -509,23 +471,27 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
 border-color: rgb(21, 21, 21);
-color: rgb(170, 0, 0);</string>
+color: rgb(170, 0, 0);
+</string>
          </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="btn5">
+       <item row="0" column="1">
+        <widget class="QPushButton" name="btn8">
          <property name="sizePolicy">
           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
            <horstretch>0</horstretch>
@@ -558,10 +524,65 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(89, 153, 255);
+border-color: rgb(21, 21, 21);
+color: rgb(170, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="btn6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>24</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
@@ -607,10 +628,65 @@ color: rgb(170, 0, 0);</string>
          </property>
          <property name="font">
           <font>
-           <pointsize>22</pointsize>
+           <pointsize>24</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(89, 153, 255);
+border-color: rgb(21, 21, 21);
+color: rgb(170, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="btn5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="sizeIncrement">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>24</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>OpenHandCursor</cursorShape>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(89, 153, 255);
@@ -632,7 +708,8 @@ color: rgb(170, 0, 0);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(170, 0, 0);</string>
+        <string notr="true">color: rgb(170, 0, 0);
+</string>
        </property>
        <property name="text">
         <string/>
@@ -670,7 +747,8 @@ color: rgb(170, 0, 0);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(60, 255, 57);</string>
+          <string notr="true">background-color: rgb(12, 152, 35);
+</string>
          </property>
          <property name="text">
           <string>Start</string>

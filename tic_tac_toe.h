@@ -24,11 +24,12 @@ private:
     Ui::Tic_tac_toe *ui;
 
     QVector<QPushButton *> field;
+    QVector<int> win_vector; //contains cell numbers that form a winning combination
     char CompSymbol = 'O';
     char PeopleSymbol = 'X';
     static const int SIZE = 9;
     int coord;
-    int move_counter;
+    int move_counter = 0;
 
 private:
     bool IsLegal(int index);
@@ -41,8 +42,8 @@ private:
     void CompMove();
     bool NextMoveWin(char checked_char);
     void EasyLevel();
+    void NormalLevel();
     void HardLevel();
-    void ImpossibleLevel();
 
 
 private slots:

@@ -31,25 +31,27 @@ class Ui_Tic_tac_toe
 {
 public:
     QWidget *centralWidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QComboBox *levelBox;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label;
+    QSpacerItem *horizontalSpacer_5;
     QVBoxLayout *verticalLayout_2;
     QRadioButton *rbX;
     QRadioButton *rbO;
+    QSpacerItem *horizontalSpacer_4;
     QGridLayout *gridLayout;
     QPushButton *btn9;
     QPushButton *btn3;
-    QPushButton *btn8;
-    QPushButton *btn4;
     QPushButton *btn1;
-    QPushButton *btn6;
+    QPushButton *btn4;
     QPushButton *btn7;
-    QPushButton *btn5;
+    QPushButton *btn8;
+    QPushButton *btn6;
     QPushButton *btn2;
+    QPushButton *btn5;
     QLabel *ShowResult;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnStart;
@@ -60,24 +62,24 @@ public:
     {
         if (Tic_tac_toe->objectName().isEmpty())
             Tic_tac_toe->setObjectName(QStringLiteral("Tic_tac_toe"));
-        Tic_tac_toe->resize(275, 400);
+        Tic_tac_toe->resize(285, 400);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Tic_tac_toe->sizePolicy().hasHeightForWidth());
         Tic_tac_toe->setSizePolicy(sizePolicy);
-        Tic_tac_toe->setMinimumSize(QSize(275, 400));
+        Tic_tac_toe->setMinimumSize(QSize(285, 400));
         Tic_tac_toe->setBaseSize(QSize(275, 400));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icon/image/tic-tac-toe_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/icon/image/icon_tic-tac-toe.png"), QSize(), QIcon::Normal, QIcon::Off);
         Tic_tac_toe->setWindowIcon(icon);
         Tic_tac_toe->setStyleSheet(QStringLiteral(""));
         centralWidget = new QWidget(Tic_tac_toe);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(20, 10, 234, 377));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(23, 12, 240, 379));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -85,26 +87,30 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        levelBox = new QComboBox(widget);
+        horizontalLayout_2->setContentsMargins(6, -1, 3, 0);
+        levelBox = new QComboBox(layoutWidget);
         levelBox->setObjectName(QStringLiteral("levelBox"));
         QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(levelBox->sizePolicy().hasHeightForWidth());
         levelBox->setSizePolicy(sizePolicy1);
+        levelBox->setMinimumSize(QSize(70, 0));
+        levelBox->setMaximumSize(QSize(70, 16777215));
         QFont font;
         font.setPointSize(11);
         levelBox->setFont(font);
+        levelBox->setToolTipDuration(0);
         levelBox->setEditable(false);
         levelBox->setMinimumContentsLength(2);
 
         horizontalLayout_2->addWidget(levelBox);
 
-        horizontalSpacer_2 = new QSpacerItem(9, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_2 = new QSpacerItem(14, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_2);
 
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
@@ -117,10 +123,14 @@ public:
 
         horizontalLayout_2->addWidget(label);
 
+        horizontalSpacer_5 = new QSpacerItem(3, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_5);
+
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        rbX = new QRadioButton(widget);
+        rbX = new QRadioButton(layoutWidget);
         rbX->setObjectName(QStringLiteral("rbX"));
         QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
@@ -130,11 +140,11 @@ public:
         QFont font2;
         font2.setPointSize(14);
         rbX->setFont(font2);
-        rbX->setStyleSheet(QStringLiteral("color: rgb(0, 170, 0);"));
+        rbX->setStyleSheet(QStringLiteral("color: rgb(0, 100, 0);"));
 
         verticalLayout_2->addWidget(rbX);
 
-        rbO = new QRadioButton(widget);
+        rbO = new QRadioButton(layoutWidget);
         rbO->setObjectName(QStringLiteral("rbO"));
         rbO->setFont(font2);
         rbO->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
@@ -144,6 +154,10 @@ public:
 
         horizontalLayout_2->addLayout(verticalLayout_2);
 
+        horizontalSpacer_4 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_4);
+
 
         verticalLayout->addLayout(horizontalLayout_2);
 
@@ -152,7 +166,7 @@ public:
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetNoConstraint);
         gridLayout->setContentsMargins(3, 3, 3, 3);
-        btn9 = new QPushButton(widget);
+        btn9 = new QPushButton(layoutWidget);
         btn9->setObjectName(QStringLiteral("btn9"));
         QSizePolicy sizePolicy4(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy4.setHorizontalStretch(0);
@@ -164,17 +178,18 @@ public:
         btn9->setSizeIncrement(QSize(70, 70));
         btn9->setBaseSize(QSize(70, 70));
         QFont font3;
-        font3.setPointSize(22);
+        font3.setPointSize(24);
         font3.setBold(true);
         font3.setWeight(75);
         btn9->setFont(font3);
+        btn9->setCursor(QCursor(Qt::OpenHandCursor));
         btn9->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
 
         gridLayout->addWidget(btn9, 0, 2, 1, 1);
 
-        btn3 = new QPushButton(widget);
+        btn3 = new QPushButton(layoutWidget);
         btn3->setObjectName(QStringLiteral("btn3"));
         sizePolicy4.setHeightForWidth(btn3->sizePolicy().hasHeightForWidth());
         btn3->setSizePolicy(sizePolicy4);
@@ -183,43 +198,15 @@ public:
         btn3->setSizeIncrement(QSize(70, 70));
         btn3->setBaseSize(QSize(70, 70));
         btn3->setFont(font3);
+        btn3->setCursor(QCursor(Qt::OpenHandCursor));
         btn3->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
-"color: rgb(170, 0, 0);"));
+"color: rgb(170, 0, 0);\n"
+""));
 
         gridLayout->addWidget(btn3, 2, 2, 1, 1);
 
-        btn8 = new QPushButton(widget);
-        btn8->setObjectName(QStringLiteral("btn8"));
-        sizePolicy4.setHeightForWidth(btn8->sizePolicy().hasHeightForWidth());
-        btn8->setSizePolicy(sizePolicy4);
-        btn8->setMinimumSize(QSize(70, 70));
-        btn8->setMaximumSize(QSize(70, 70));
-        btn8->setSizeIncrement(QSize(70, 70));
-        btn8->setBaseSize(QSize(70, 70));
-        btn8->setFont(font3);
-        btn8->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
-"border-color: rgb(21, 21, 21);\n"
-"color: rgb(170, 0, 0);"));
-
-        gridLayout->addWidget(btn8, 0, 1, 1, 1);
-
-        btn4 = new QPushButton(widget);
-        btn4->setObjectName(QStringLiteral("btn4"));
-        sizePolicy4.setHeightForWidth(btn4->sizePolicy().hasHeightForWidth());
-        btn4->setSizePolicy(sizePolicy4);
-        btn4->setMinimumSize(QSize(70, 70));
-        btn4->setMaximumSize(QSize(70, 70));
-        btn4->setSizeIncrement(QSize(70, 70));
-        btn4->setBaseSize(QSize(70, 70));
-        btn4->setFont(font3);
-        btn4->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
-"border-color: rgb(21, 21, 21);\n"
-"color: rgb(170, 0, 0);"));
-
-        gridLayout->addWidget(btn4, 1, 0, 1, 1);
-
-        btn1 = new QPushButton(widget);
+        btn1 = new QPushButton(layoutWidget);
         btn1->setObjectName(QStringLiteral("btn1"));
         sizePolicy4.setHeightForWidth(btn1->sizePolicy().hasHeightForWidth());
         btn1->setSizePolicy(sizePolicy4);
@@ -228,28 +215,30 @@ public:
         btn1->setSizeIncrement(QSize(70, 70));
         btn1->setBaseSize(QSize(70, 70));
         btn1->setFont(font3);
+        btn1->setCursor(QCursor(Qt::OpenHandCursor));
         btn1->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
 
         gridLayout->addWidget(btn1, 2, 0, 1, 1);
 
-        btn6 = new QPushButton(widget);
-        btn6->setObjectName(QStringLiteral("btn6"));
-        sizePolicy4.setHeightForWidth(btn6->sizePolicy().hasHeightForWidth());
-        btn6->setSizePolicy(sizePolicy4);
-        btn6->setMinimumSize(QSize(70, 70));
-        btn6->setMaximumSize(QSize(70, 70));
-        btn6->setSizeIncrement(QSize(70, 70));
-        btn6->setBaseSize(QSize(70, 70));
-        btn6->setFont(font3);
-        btn6->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
+        btn4 = new QPushButton(layoutWidget);
+        btn4->setObjectName(QStringLiteral("btn4"));
+        sizePolicy4.setHeightForWidth(btn4->sizePolicy().hasHeightForWidth());
+        btn4->setSizePolicy(sizePolicy4);
+        btn4->setMinimumSize(QSize(70, 70));
+        btn4->setMaximumSize(QSize(70, 70));
+        btn4->setSizeIncrement(QSize(70, 70));
+        btn4->setBaseSize(QSize(70, 70));
+        btn4->setFont(font3);
+        btn4->setCursor(QCursor(Qt::OpenHandCursor));
+        btn4->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
 
-        gridLayout->addWidget(btn6, 1, 2, 1, 1);
+        gridLayout->addWidget(btn4, 1, 0, 1, 1);
 
-        btn7 = new QPushButton(widget);
+        btn7 = new QPushButton(layoutWidget);
         btn7->setObjectName(QStringLiteral("btn7"));
         sizePolicy4.setHeightForWidth(btn7->sizePolicy().hasHeightForWidth());
         btn7->setSizePolicy(sizePolicy4);
@@ -258,28 +247,47 @@ public:
         btn7->setSizeIncrement(QSize(70, 70));
         btn7->setBaseSize(QSize(70, 70));
         btn7->setFont(font3);
+        btn7->setCursor(QCursor(Qt::OpenHandCursor));
         btn7->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
-"color: rgb(170, 0, 0);"));
+"color: rgb(170, 0, 0);\n"
+""));
 
         gridLayout->addWidget(btn7, 0, 0, 1, 1);
 
-        btn5 = new QPushButton(widget);
-        btn5->setObjectName(QStringLiteral("btn5"));
-        sizePolicy4.setHeightForWidth(btn5->sizePolicy().hasHeightForWidth());
-        btn5->setSizePolicy(sizePolicy4);
-        btn5->setMinimumSize(QSize(70, 70));
-        btn5->setMaximumSize(QSize(70, 70));
-        btn5->setSizeIncrement(QSize(70, 70));
-        btn5->setBaseSize(QSize(70, 70));
-        btn5->setFont(font3);
-        btn5->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
+        btn8 = new QPushButton(layoutWidget);
+        btn8->setObjectName(QStringLiteral("btn8"));
+        sizePolicy4.setHeightForWidth(btn8->sizePolicy().hasHeightForWidth());
+        btn8->setSizePolicy(sizePolicy4);
+        btn8->setMinimumSize(QSize(70, 70));
+        btn8->setMaximumSize(QSize(70, 70));
+        btn8->setSizeIncrement(QSize(70, 70));
+        btn8->setBaseSize(QSize(70, 70));
+        btn8->setFont(font3);
+        btn8->setCursor(QCursor(Qt::OpenHandCursor));
+        btn8->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
 
-        gridLayout->addWidget(btn5, 1, 1, 1, 1);
+        gridLayout->addWidget(btn8, 0, 1, 1, 1);
 
-        btn2 = new QPushButton(widget);
+        btn6 = new QPushButton(layoutWidget);
+        btn6->setObjectName(QStringLiteral("btn6"));
+        sizePolicy4.setHeightForWidth(btn6->sizePolicy().hasHeightForWidth());
+        btn6->setSizePolicy(sizePolicy4);
+        btn6->setMinimumSize(QSize(70, 70));
+        btn6->setMaximumSize(QSize(70, 70));
+        btn6->setSizeIncrement(QSize(70, 70));
+        btn6->setBaseSize(QSize(70, 70));
+        btn6->setFont(font3);
+        btn6->setCursor(QCursor(Qt::OpenHandCursor));
+        btn6->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
+"border-color: rgb(21, 21, 21);\n"
+"color: rgb(170, 0, 0);"));
+
+        gridLayout->addWidget(btn6, 1, 2, 1, 1);
+
+        btn2 = new QPushButton(layoutWidget);
         btn2->setObjectName(QStringLiteral("btn2"));
         sizePolicy4.setHeightForWidth(btn2->sizePolicy().hasHeightForWidth());
         btn2->setSizePolicy(sizePolicy4);
@@ -288,19 +296,37 @@ public:
         btn2->setSizeIncrement(QSize(70, 70));
         btn2->setBaseSize(QSize(70, 70));
         btn2->setFont(font3);
+        btn2->setCursor(QCursor(Qt::OpenHandCursor));
         btn2->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
 "border-color: rgb(21, 21, 21);\n"
 "color: rgb(170, 0, 0);"));
 
         gridLayout->addWidget(btn2, 2, 1, 1, 1);
 
+        btn5 = new QPushButton(layoutWidget);
+        btn5->setObjectName(QStringLiteral("btn5"));
+        sizePolicy4.setHeightForWidth(btn5->sizePolicy().hasHeightForWidth());
+        btn5->setSizePolicy(sizePolicy4);
+        btn5->setMinimumSize(QSize(70, 70));
+        btn5->setMaximumSize(QSize(70, 70));
+        btn5->setSizeIncrement(QSize(70, 70));
+        btn5->setBaseSize(QSize(70, 70));
+        btn5->setFont(font3);
+        btn5->setCursor(QCursor(Qt::OpenHandCursor));
+        btn5->setStyleSheet(QLatin1String("background-color: rgb(89, 153, 255);\n"
+"border-color: rgb(21, 21, 21);\n"
+"color: rgb(170, 0, 0);"));
+
+        gridLayout->addWidget(btn5, 1, 1, 1, 1);
+
 
         verticalLayout->addLayout(gridLayout);
 
-        ShowResult = new QLabel(widget);
+        ShowResult = new QLabel(layoutWidget);
         ShowResult->setObjectName(QStringLiteral("ShowResult"));
         ShowResult->setFont(font2);
-        ShowResult->setStyleSheet(QStringLiteral("color: rgb(170, 0, 0);"));
+        ShowResult->setStyleSheet(QLatin1String("color: rgb(170, 0, 0);\n"
+""));
         ShowResult->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(ShowResult);
@@ -308,14 +334,15 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        btnStart = new QPushButton(widget);
+        btnStart = new QPushButton(layoutWidget);
         btnStart->setObjectName(QStringLiteral("btnStart"));
         sizePolicy.setHeightForWidth(btnStart->sizePolicy().hasHeightForWidth());
         btnStart->setSizePolicy(sizePolicy);
         btnStart->setMinimumSize(QSize(100, 40));
         btnStart->setMaximumSize(QSize(100, 40));
         btnStart->setFont(font1);
-        btnStart->setStyleSheet(QStringLiteral("background-color: rgb(60, 255, 57);"));
+        btnStart->setStyleSheet(QLatin1String("background-color: rgb(12, 152, 35);\n"
+""));
 
         horizontalLayout->addWidget(btnStart);
 
@@ -323,7 +350,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        btnClose = new QPushButton(widget);
+        btnClose = new QPushButton(layoutWidget);
         btnClose->setObjectName(QStringLiteral("btnClose"));
         sizePolicy.setHeightForWidth(btnClose->sizePolicy().hasHeightForWidth());
         btnClose->setSizePolicy(sizePolicy);
@@ -351,23 +378,22 @@ public:
         levelBox->clear();
         levelBox->insertItems(0, QStringList()
          << QApplication::translate("Tic_tac_toe", "Easy", 0)
+         << QApplication::translate("Tic_tac_toe", "Normal", 0)
          << QApplication::translate("Tic_tac_toe", "Hard", 0)
-         << QApplication::translate("Tic_tac_toe", "Impossible", 0)
         );
-        levelBox->setCurrentText(QApplication::translate("Tic_tac_toe", "Easy", 0));
         label->setText(QApplication::translate("Tic_tac_toe", "Select a\n"
 "character", 0));
         rbX->setText(QApplication::translate("Tic_tac_toe", "X", 0));
         rbO->setText(QApplication::translate("Tic_tac_toe", "O", 0));
         btn9->setText(QString());
         btn3->setText(QString());
-        btn8->setText(QString());
-        btn4->setText(QString());
         btn1->setText(QString());
-        btn6->setText(QString());
+        btn4->setText(QString());
         btn7->setText(QString());
-        btn5->setText(QString());
+        btn8->setText(QString());
+        btn6->setText(QString());
         btn2->setText(QString());
+        btn5->setText(QString());
         ShowResult->setText(QString());
         btnStart->setText(QApplication::translate("Tic_tac_toe", "Start", 0));
         btnClose->setText(QApplication::translate("Tic_tac_toe", "Close", 0));

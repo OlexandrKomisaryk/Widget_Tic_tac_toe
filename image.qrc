@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/icon">
-        <file>image/tic-tac-toe_icon.png</file>
+        <file>image/icon_tic-tac-toe.png</file>
+        <file>image/pictogram_tic-tac-toe.ico</file>
     </qresource>
 </RCC>
